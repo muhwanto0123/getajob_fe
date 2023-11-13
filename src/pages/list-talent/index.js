@@ -8,34 +8,30 @@ import axios from "axios";
 import { useRouter } from "next/router";
 
 function tallentList(parameter) {
-  
   const router = useRouter();
-  
+
   const [listData, setListData] = React.useState(parameter?.data?.slice(0, 4));
-  
+
   const [currentPage, setCurrentPage] = React.useState(1);
 
-  const countData = Math.round(parameter?.data?.length / 4)
-
+  const countData = Math.round(parameter?.data?.length / 4);
 
   const handlePagination = (nextPage) => {
-    setCurrentPage(nextPage)
-    
-    if (nextPage > 1){
-      setListData(parameter?.data?.slice(4 * (nextPage - 1),4 * nextPage))
+    setCurrentPage(nextPage);
+
+    if (nextPage > 1) {
+      setListData(parameter?.data?.slice(4 * (nextPage - 1), 4 * nextPage));
     } else {
-      setListData(parameter?.data?.slice(0,4))
+      setListData(parameter?.data?.slice(0, 4));
     }
-  }
+  };
 
   const getNama = () => {
-    const name = listData.map((item) => (
-      [item?.fullname]
-    )) 
+    const name = listData.map((item) => [item?.fullname]);
     const foundNames = name.filter((names) => {
-      console.log(names.toLowerCase())
-    })
-  }
+      console.log(names.toLowerCase());
+    });
+  };
 
   return (
     <>
@@ -49,25 +45,32 @@ function tallentList(parameter) {
       {/* subheader */}
       <section className="bg-primary">
         <div className="container mx-auto py-[10px]">
-          <h1 className="text-[28px] text-[#fff]">Top jobs</h1>
+          <h1 className="text-[28px] text-[#fff] pl-[12px] md:pl-[0px]">Top jobs</h1>
         </div>
       </section>
       <main className="min-h-[50vh] bg-[#F6F7F8] pt-[45px]">
         {/* search bar */}
         <div className=" container mx-auto">
-          <div className="flex justify-between p-[15px] bg-[#fff] gap-[20px] drop-shadow-xl rounded-lg">
+          <div className="flex justify-between p-[15px] bg-[#fff] gap-[20px] drop-shadow-xl rounded-lg mx-[15px] md:mx-[0px]">
             <input
               placeholder="search for any talent name"
               className="w-full"
             />
-            <button className="btn-primary rounded-lg" onClick={() => getNama()}>Search</button>
+            <button
+              className="btn-primary rounded-lg"
+              onClick={() => getNama()}
+            >
+              Search
+            </button>
           </div>
           {/* content of talent */}
-          <div className="p-[25px] bg-[#fff] drop-shadow-xl rounded-lg my-[60px]">
+          <div className="p-[25px] bg-[#fff] drop-shadow-xl rounded-lg my-[60px] mx-[15px] md:mx-[0px]">
             {listData.map((item, key) => (
               <div
                 className={`grid md:grid-cols-5 gap-[50px] items-center ${
-                  key === listData.length - 1 ? "" : "border-b-2 pb-[30px] mb-[30px]"
+                  key === listData.length - 1
+                    ? ""
+                    : "border-b-2 pb-[30px] mb-[30px]"
                 }`}
                 key={key}
               >
@@ -75,9 +78,9 @@ function tallentList(parameter) {
                   <img
                     src={item?.photo}
                     alt="profile"
-                    width="100px"
-                    className="rounded-full h-[100px]"
+                    className="rounded-full h-[100px] md:w-[100px] w-[100px]"
                   />
+
                   <div>
                     <h4>{item?.fullname}</h4>
                     <p className="text-[#9EA0A5] text-[14px] mt-[2px]">
@@ -89,23 +92,27 @@ function tallentList(parameter) {
                         {item?.address}
                       </p>
                     </div>
-                    <div className="md:flex md:gap-[10px] md:mt-[10px]">
+                    <div className="flex justify-center md:justify-start gap-2 md:gap-3  m-2">
                       {item?.skills.map((item, key) => (
-                        <div
-                          className="bg-[#FBB017] border-2 border-[#FBB017] md:py-1 md:px-5 rounded mb-[15px]"
+                        <button
+                          className="border-2 bg-[#FBB017] w-[55px] mt-[15px] mb-[10px] border-[#FBB017] md:py-1 md:px-5  rounded md:mb-[15px] "
                           key={key}
                         >
                           <span className="text-[#fff] text-[14px] text-center">
                             {item}
                           </span>
-                        </div>
+                        </button>
                       ))}
                     </div>
                   </div>
                 </div>
-                <div>
-                  <button className="btn-primary btn-lg rounded-lg mr-[45px]"
-                  onClick={() => router.push(`/list-talent/detail/${item?.id}`)}>
+                <div className="container flex justify-center">
+                  <button
+                    className="btn-primary btn-lg rounded-lg flex-auto w-screen w-[15px]"
+                    onClick={() =>
+                      router.push(`/list-talent/detail/${item?.id}`)
+                    }
+                  >
                     Lihat Profile
                   </button>
                 </div>

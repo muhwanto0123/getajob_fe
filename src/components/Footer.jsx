@@ -10,19 +10,19 @@ function footer() {
             width="178px"
             height="50px"
             alt="logo"
-            className="mb-[20px]"
+            className="mb-[20px] ml-[55px] md:ml-[0px]"
           />
-          <p className="text-[#fff] mb-[50px]">
+          <p className="text-[#fff] mb-[50px] text-center md:text-left">
             The world is increasingly advanced, <br />
             and todays technology requires talent.
           </p>
 
           <hr />
-          <div className="flex justify-between mt-[20px]">
-            <p className="text-[#fff]">2020 Peworld. All right reserved</p>
-            <div className="flex gap-[30px]">
-              <p className="text-[#fff]">Telepon</p>
-              <p className="text-[#fff]">Email</p>
+          <div className="md:flex md:justify-between mt-[20px]">
+            <p className="text-[#fff] text-center md:text-left">2020 Peworld. All right reserved</p>
+            <div className="md:flex gap-[30px]">
+              <p className="text-[#fff] text-center md:text-left">Telepon</p>
+              <p className="text-[#fff] text-center md:text-left">Email</p>
             </div>
           </div>
         </div>

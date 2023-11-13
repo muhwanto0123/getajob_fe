@@ -15,8 +15,8 @@ function Detail(parameterProfile) {
         <Navbar />
       </header>
 
-      <main className="min-h-[50vh] bg-[#F6F7F8] pt-[45px]">
-        <div className="container mx-auto">
+      <main className="min-h-[50vh] bg-[#F6F7F8] pt-[45px] mx-[15px] md:mx-[0px]">
+        <div className="container mx-auto ">
           <div className="bg-[#ffff] drop-shadow-lg rounded-s-lg">
             <div className="bg-[#5e50a1] h-[200px] rounded-t-lg" />
             <div className="flex justify-center mt-[-80px] mb-[30px]">
@@ -33,12 +33,12 @@ function Detail(parameterProfile) {
               <p className="text-[#9EA0A5] text-[14px]">{data?.address}</p>
             </div>
             <div className="flex justify-center mb-[30px]">
-              <div className="w-[600px]">
+              <div className="md:w-[600px] w-[255px]">
                 <p className="text-center text-[14px]">{data?.desc}</p>
               </div>
             </div>
             <div className="flex justify-center mb-[30px]">
-              <button className="btn-primary btn-lg rounded w-[300px]">
+              <button className="btn-primary btn-lg rounded md:w-[300px] w-[255px]">
                 Hire
               </button>
             </div>

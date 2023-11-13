@@ -5,7 +5,7 @@ import { list } from "postcss";
 const listData = [
   {
     id: 1,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/150`,
     fullname: "Wilson LoSiento",
     job: "Web Developer",
     address: "Blitar",
@@ -15,7 +15,7 @@ const listData = [
   },
   {
     id: 2,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/160`,
     fullname: "Nurul Tirta",
     job: "Web Developer",
     address: "Blitar",
@@ -25,7 +25,7 @@ const listData = [
   },
   {
     id: 3,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/170`,
     fullname: "Anwar Taufik",
     job: "Web Developer",
     address: "Blitar",
@@ -35,7 +35,7 @@ const listData = [
   },
   {
     id: 4,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/180`,
     fullname: "Iskandar Bambang",
     job: "Web Developer",
     address: "Blitar",
@@ -45,7 +45,7 @@ const listData = [
   },
   {
     id: 5,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/190`,
     fullname: "Hadi Putra",
     job: "Web Developer",
     address: "Blitar",
@@ -55,7 +55,7 @@ const listData = [
   },
   {
     id: 6,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/200`,
     fullname: "Wilson LoSiento",
     job: "Web Developer",
     address: "Blitar",
@@ -65,7 +65,7 @@ const listData = [
   },
   {
     id: 7,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/210`,
     fullname: "Danial Slamet",
     job: "Web Developer",
     address: "Blitar",
@@ -75,7 +75,7 @@ const listData = [
   },
   {
     id: 8,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/220`,
     fullname: "Ayal Amnon",
     job: "Web Developer",
     address: "Blitar",
@@ -85,7 +85,7 @@ const listData = [
   },
   {
     id: 9,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/230`,
     fullname: "Nitzan Chayyim",
     job: "Web Developer",
     address: "Blitar",
@@ -94,7 +94,7 @@ const listData = [
   },
   {
     id: 10,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/240`,
     fullname: "Rahman Ruiha",
     job: "Web Developer",
     address: "Blitar",
@@ -103,7 +103,7 @@ const listData = [
   },
   {
     id: 11,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/250`,
     fullname: "Wilson LoSiento",
     job: "Web Developer",
     address: "Blitar",
@@ -112,7 +112,7 @@ const listData = [
   },
   {
     id: 12,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/260`,
     fullname: "Petera Abdul",
     job: "Web Developer",
     address: "Blitar",
@@ -121,7 +121,7 @@ const listData = [
   },
   {
     id: 13,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/270`,
     fullname: "Marama Tama",
     job: "Web Developer",
     address: "Blitar",
@@ -130,7 +130,7 @@ const listData = [
   },
   {
     id: 14,
-    photo: `https://i.pravatar.cc/150?u=${new Date().getTime()}`,
+    photo: `https://i.pravatar.cc/280`,
     fullname: "Krisna Maata",
     job: "Web Developer",
     address: "Blitar",

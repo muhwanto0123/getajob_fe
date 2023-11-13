@@ -14,26 +14,27 @@ export default function Home() {
           <Navbar />
 
           <section className="grid grid-cols-1 md:grid-cols-2 items-center mt-[115px]">
-            <div>
-              <h1 className="mb-[20px]">
+            <div className="place-content-center">
+              <h1 className="px-[20px] mb-[20px] md:px-[0px] md:mb-[20px] text-[30px] md:text-[45px] text-center md:text-left">
                 Talenta terbaik negeri <br />
                 untuk perubahan revolusi 4.0
               </h1>
-              <p className="mb-[30px]">
-                The world is increasingly advanced,{" "}
-                <br /> 
+              <p className="mb-[30px] text-center md:text-left">
+                The world is increasingly advanced, <br />
                 and todays technology requires talent.
               </p>
-              <button className="btn-primary btn-lg rounded">
-                Mulai Sekarang
-              </button>
+              <div className="flex justify-center md:justify-between">
+                <button className="btn-primary btn-lg rounded">
+                  Mulai Sekarang
+                </button>
+              </div>
             </div>
             <img
               src="/img/a1.png"
               width="575px"
               height="575px"
               alt="banner"
-              className="order-first md:order-last"
+              className="order-first md:order-last mb-[20px] md:mb-[0px]"
             />
           </section>
         </header>
@@ -110,8 +111,8 @@ export default function Home() {
         </section>
 
         <section className="container mx-auto flex justify-center my-[150px]">
-          <div className="cta-rounded justify-between grid grid-cols-1 md:flex items-center bg-primary w-full md:w-[85%] h-[220px] px-[40px] ">
-            <h2 className="text-[#fff]">
+          <div className="cta-rounded justify-between grid grid-cols-1 md:flex items-center bg-primary w-full md:w-[85%] h-[220px] px-[40px] mx-[12px] md:mx-[0px]">
+            <h2 className="text-[#fff] text-center md:text-left">
               Looking for talent ? <br />
               we can help
             </h2>
