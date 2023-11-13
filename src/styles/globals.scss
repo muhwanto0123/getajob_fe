@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './index.scss';
+@import './variabel.scss';
+
+h1 {
+    font-size: 44px;
+    font-weight: 500;
+    color: $text-dark;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 500;
+    color: $text-dark;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: $text-dark;
+}
+
+
+.btn-primary {
+    color: $text-white;
+    background-color: $primary;
+    padding: 5px 15px;
+    font-weight: 500;
+}
+
+.btn-white {
+    color: $primary;
+    background-color: $white;
+    padding: 5px 15px;
+    font-weight: 500;
+}
+
+.btn-lg {
+    padding:10px 25px;
+}
+
+.btn-outline-primary {
+    color: $text-primary;
+    background-color: $white;
+    border-color: $primary;
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px 15px;
+}
+
+.text-muted {
+    color: $text-muted;
+}
+.bg-primary {
+    background-color:$primary;
+}
