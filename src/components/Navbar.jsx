@@ -8,9 +8,9 @@ function navbar() {
   const [user, setUser] = React.useState(null);
   React.useEffect(() => {
     if (getCookie("user")) {
-      setUser(JSON.parse(getCookie("user")))
+      setUser(JSON.parse(getCookie("user")));
     }
-  }, [])
+  }, []);
   return (
     <>
       <nav className="flex justify-between mt-5">
@@ -23,13 +23,16 @@ function navbar() {
         />
         {user ? (
           <div className="pr-[12px] md:pr-[0px]">
-            <img
-              src={
-                user?.photo ?? "https://www.w3schools.com/w3images/avatar5.png"
-              }
-              width="50px"
-              className="rounded-full"
-            />
+            <button>
+              <img
+                src={
+                  user?.photo ??
+                  "https://www.w3schools.com/w3images/avatar5.png"
+                }
+                width="50px"
+                className="rounded-full"
+              />
+            </button>
           </div>
         ) : (
           <div className="flex gap-[10px]">
