@@ -158,7 +158,7 @@ export async function getServerSideProps({ req, res, params }) {
   const token = getCookie("token", { req, res });
 
   const request = await axios.get(
-    `http://localhost:3000/api/user_list?id=${id}`
+    `https://getajob-fe.vercel.app/api/user_list?id=${id}`
   );
 
   if (!user && !token) {
