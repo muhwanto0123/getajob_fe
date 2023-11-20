@@ -22,7 +22,7 @@ export default function Home(props) {
                 Talenta terbaik negri untuk perubahan revolusi 4.0
               </h1>
               <p className="mb-[30px] text-center md:text-left">
-                The world is increasingly advanced, <br />
+                Presenting the best talents for you, <br />
                 and todays technology requires talent.
               </p>
               <div className="flex justify-center md:justify-between">
