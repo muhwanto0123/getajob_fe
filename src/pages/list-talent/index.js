@@ -162,7 +162,7 @@ function tallentList(parameter) {
 // merubah halaman menjadi berjalan di ssr
 export async function getServerSideProps() {
   try {
-    const request = await axios.get("getajob-fe.vercel.app/api/user_list");
+    const request = await axios.get("https://getajob-fe.vercel.app/api/user_list");
     return {
       props: request.data,
     }
