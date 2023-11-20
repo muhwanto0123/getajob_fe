@@ -1,4 +1,22 @@
 .cta-rounded {
     border-radius: 40px 8px 40px 8px;
-
 }
+
+@media screen and (min-width: 200px) and (max-width: 480px) {
+    .d-mobile {
+        visibility: visible;
+        display: inherit;
+    }
+    .d-desktop {
+        visibility: hidden;
+        display: none;
+    }
+
+    .login-judul {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+
+

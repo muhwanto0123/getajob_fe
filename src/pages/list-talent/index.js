@@ -12,26 +12,28 @@ function tallentList(parameter) {
 
   const [listData, setListData] = React.useState(parameter?.data?.slice(0, 4));
 
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [currentPage, setCurrentPage] = React.useState(
+    parseInt(router?.query?.page ?? 1)
+  );
 
   const countData = Math.round(parameter?.data?.length / 4);
 
+  const [searchBar, setSearchBar] = React.useState("");
+
   const handlePagination = (nextPage) => {
     setCurrentPage(nextPage);
+
+    router.push(`/list-talent?page=${nextPage}`)
 
     if (nextPage > 1) {
       setListData(parameter?.data?.slice(4 * (nextPage - 1), 4 * nextPage));
     } else {
       setListData(parameter?.data?.slice(0, 4));
     }
-  };
+  }
 
-  const getNama = () => {
-    const name = listData.map((item) => [item?.fullname]);
-    const foundNames = name.filter((names) => {
-      console.log(names.toLowerCase());
-    });
-  };
+  
+
 
   return (
     <>
@@ -45,7 +47,9 @@ function tallentList(parameter) {
       {/* subheader */}
       <section className="bg-primary">
         <div className="container mx-auto py-[10px]">
-          <h1 className="text-[28px] text-[#fff] pl-[12px] md:pl-[0px]">Top jobs</h1>
+          <h1 className="text-[28px] text-[#fff] pl-[12px] md:pl-[0px]">
+            Top Talent
+          </h1>
         </div>
       </section>
       <main className="min-h-[50vh] bg-[#F6F7F8] pt-[45px]">
@@ -55,17 +59,17 @@ function tallentList(parameter) {
             <input
               placeholder="search for any talent name"
               className="w-full"
+              onChange={(item) => setSearchBar(item.target.value)}
             />
             <button
               className="btn-primary rounded-lg"
-              onClick={() => getNama()}
             >
               Search
             </button>
           </div>
           {/* content of talent */}
           <div className="p-[25px] bg-[#fff] drop-shadow-xl rounded-lg my-[60px] mx-[15px] md:mx-[0px]">
-            {listData.map((item, key) => (
+            {listData.filter((item) => (item.fullname.toLowerCase().includes(searchBar))).map((item, key) => (
               <div
                 className={`grid md:grid-cols-5 gap-[50px] items-center ${
                   key === listData.length - 1
@@ -92,10 +96,10 @@ function tallentList(parameter) {
                         {item?.address}
                       </p>
                     </div>
-                    <div className="flex justify-center md:justify-start gap-2 md:gap-3  m-2">
+                    <div className="flex gap-[10px] mt-[10px] ">
                       {item?.skills.map((item, key) => (
                         <button
-                          className="border-2 bg-[#FBB017] w-[55px] mt-[15px] mb-[10px] border-[#FBB017] md:py-1 md:px-5  rounded md:mb-[15px] "
+                          className="bg-[#FBB01799] border-2 border-[#FBB017] md:py-1 md:px-5  rounded"
                           key={key}
                         >
                           <span className="text-[#fff] text-[14px] text-center">
@@ -106,9 +110,9 @@ function tallentList(parameter) {
                     </div>
                   </div>
                 </div>
-                <div className="container flex justify-center">
+                <div className="container flex justify-center block">
                   <button
-                    className="btn-primary btn-lg rounded-lg flex-auto w-screen w-[15px]"
+                    className="btn-primary btn-lg rounded-lg flex-auto w-screen w-[10px] md:w-[30px]"
                     onClick={() =>
                       router.push(`/list-talent/detail/${item?.id}`)
                     }
@@ -157,10 +161,18 @@ function tallentList(parameter) {
 
 // merubah halaman menjadi berjalan di ssr
 export async function getServerSideProps() {
-  const request = await axios.get("http://localhost:3000/api/talent_list");
-  return {
-    props: request.data,
-  };
+  try {
+    const request = await axios.get("http://localhost:3000/api/user_list");
+    return {
+      props: request.data,
+    }
+  } catch (error) {
+    return {
+      props: {
+        data: []
+      },
+    }
+  }
 }
 
 export default tallentList;

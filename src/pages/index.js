@@ -1,8 +1,11 @@
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/router";
+// import { getStaticProps } from "next/dist/build/templates/pages";
 
-export default function Home() {
+export default function Home(props) {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -13,18 +16,20 @@ export default function Home() {
         <header className="container mx-auto">
           <Navbar />
 
-          <section className="grid grid-cols-1 md:grid-cols-2 items-center mt-[115px]">
+          <section className="grid grid-cols-1 md:grid-cols-2 items-center mt-[115px] md:px-[30px]">
             <div className="place-content-center">
               <h1 className="px-[20px] mb-[20px] md:px-[0px] md:mb-[20px] text-[30px] md:text-[45px] text-center md:text-left">
-                Talenta terbaik negeri <br />
-                untuk perubahan revolusi 4.0
+                Talenta terbaik negri untuk perubahan revolusi 4.0
               </h1>
               <p className="mb-[30px] text-center md:text-left">
                 The world is increasingly advanced, <br />
                 and todays technology requires talent.
               </p>
               <div className="flex justify-center md:justify-between">
-                <button className="btn-primary btn-lg rounded">
+                <button
+                  className="btn-primary btn-lg rounded"
+                  onClick={() => router.push("/list-talent")}
+                >
                   Mulai Sekarang
                 </button>
               </div>
@@ -39,10 +44,10 @@ export default function Home() {
           </section>
         </header>
         <section className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 mt-[150px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-[150px] md:px-[30px]">
             <img src="/img/a2.png" width="450px" height="450px" alt="banner" />
             <div className="mt-[20px]">
-              <h2 className="mb-[30px]">
+              <h2 className="mb-[30px] text-center md:text-left">
                 Kenapa harus mencari tallent <br /> di peworld
               </h2>
               {[
@@ -52,7 +57,7 @@ export default function Home() {
                 "Karena kami memberikan banyak kemudahan.",
               ]?.map((item, key) => (
                 <div
-                  className="flex align-center gap-[10px] mb-[20px]"
+                  className="flex align-center gap-[10px] mb-[20px] ml-5 md:ml-0"
                   key={key}
                 >
                   <img src="/img/check1.svg" alt="icon" />
@@ -64,10 +69,12 @@ export default function Home() {
         </section>
 
         <section className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 mt-[150px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-[150px] md:px-[30px]">
             <div className="mt-[20px]">
-              <h2 className="mb-[10px]">Skill Tallent</h2>
-              <p className="mb-[30px]">
+              <h2 className="mb-[10px] text-center md:text-left">
+                Skill Tallent
+              </h2>
+              <p className="mb-[30px] text-center md:text-left">
                 The world is increasingly advanced, <br />
                 and todays technology requires talent
               </p>
@@ -76,7 +83,7 @@ export default function Home() {
                   {["Java", "Kotlin", "PHP", "Java Script"]?.map(
                     (item, key) => (
                       <div
-                        className="flex align-center gap-[10px] mb-[20px]"
+                        className="flex align-center gap-[10px] mb-[20px] ml-5 md:ml-0"
                         key={key}
                       >
                         <img src="/img/check2.svg" alt="icon" />
@@ -116,7 +123,12 @@ export default function Home() {
               Looking for talent ? <br />
               we can help
             </h2>
-            <button className="btn-white btn-lg rounded">Mulai Sekarang</button>
+            <button
+              className="btn-white btn-lg rounded"
+              onClick={() => router.push("/list-talent")}
+            >
+              Mulai Sekarang
+            </button>
           </div>
         </section>
         {/* Footer */}
@@ -124,4 +136,19 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+// menjadi halaman static ssg
+
+export async function getStaticProps() {
+  // const random = Math.floor(Math.random() * 11);
+  // const request = await axios.get(
+  //   `https://jsonplaceholder.typicode.com/todos/${random}`
+  // );
+  return {
+    props: {
+      // request: request.data,
+    },
+    // revalidate: 30,
+  };
 }

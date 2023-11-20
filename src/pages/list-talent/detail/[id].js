@@ -3,9 +3,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Head from "next/head";
 import axios from "axios";
+import Link from "next/link";
+import { getCookie } from "cookies-next";
 
 function Detail(parameterProfile) {
   const { data } = parameterProfile;
+  const user = getCookie("user") ? JSON.parse(getCookie("user")) : null;
   return (
     <>
       <Head>
@@ -37,16 +40,24 @@ function Detail(parameterProfile) {
                 <p className="text-center text-[14px]">{data?.desc}</p>
               </div>
             </div>
-            <div className="flex justify-center mb-[30px]">
-              <button className="btn-primary btn-lg rounded md:w-[300px] w-[255px]">
-                Hire
-              </button>
-            </div>
+            {user ? (
+              <div className="flex justify-center mb-[30px]">
+                <Link href={`/list-talent/contact/${data?.id}`}>
+                  <button className="btn-primary btn-lg rounded md:w-[300px] w-[255px]">
+                    Hire
+                  </button>
+                </Link>
+              </div>
+            ) : null}
+
             <h2 className="text-center text-[22px] mb-[15px]">Skills</h2>
             <div className="flex justify-center pb-[50px] mb-[50px]">
               <div className="w-[300px] flex justify-center flex-wrap gap-[10px]">
                 {data?.skills?.map((item, key) => (
-                  <div className="bg-[#FBB017] border-2 border-[#FBB017] py-1 px-5 rounded" key={key}>
+                  <div
+                    className="bg-[#FBB017] border-2 border-[#FBB017] py-1 px-5 rounded"
+                    key={key}
+                  >
                     <span className="text-[#fff] text-[12px]">{item}</span>
                   </div>
                 ))}
@@ -65,7 +76,7 @@ function Detail(parameterProfile) {
 export async function getServerSideProps(parameter) {
   const { id } = parameter.params;
   const request = await axios.get(
-    `http://localhost:3000/api/talent_list?id=${id}`
+    `http://localhost:3000/api/user_list?id=${id}`
   );
   return {
     props: request.data,
