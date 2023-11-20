@@ -76,7 +76,7 @@ function Detail(parameterProfile) {
 export async function getServerSideProps(parameter) {
   const { id } = parameter.params;
   const request = await axios.get(
-    `http://localhost:3000/api/user_list?id=${id}`
+    `http://getajob-fe.vercel.app/api/user_list?id=${id}`
   );
   return {
     props: request.data,
