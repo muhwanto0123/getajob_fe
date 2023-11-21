@@ -2,12 +2,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { deleteCookie, getCookie } from "cookies-next";
-import SweetAlert from "react-bootstrap-sweetalert";
+import Swal from "sweetalert2";
 
 function navbar() {
   const route = useRouter();
   const [user, setUser] = React.useState(null);
-  const [alert, setAlert] = React.useState(null);
+  // const [alert, setAlert] = React.useState(null);
 
   React.useEffect(() => {
     if (getCookie("user")) {
@@ -15,20 +15,32 @@ function navbar() {
     }
   }, []);
 
-  const sweetAlertStyle = { display: "block", marginTop: "-100px" };
+  // const logout = () => {
+  //   React.useEffect(() => {
+  //     deleteCookie("user");
+  //     deleteCookie("token");
+  //     router.reload();
+  //     window.location.href = "/";
+  //   }, []);
+  // };
 
-  const successAlert = () => {
-    setAlert(
-      <SweetAlert
-        success
-        style={sweetAlertStyle}
-        title="Good job!"
-        onConfirm={() => this.setAlert(null)}
-        onCancel={() => this.setAlert(null)}
-      >
-        You clicked the button!
-      </SweetAlert>
-    );
+  const alertPopup = () => {
+    Swal.fire({
+      title: "Do you want to leave this page ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Log Out",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        deleteCookie("user");
+        deleteCookie("token");
+        route.reload();
+        window.location.href = "/";
+      }
+    });
   };
 
   return (
@@ -44,8 +56,7 @@ function navbar() {
         {user ? (
           <div className="pr-[12px] md:pr-[0px]">
             <div>
-              
-              <button onClick={successAlert}>
+              <button onClick={alertPopup}>
                 <img
                   src={
                     user?.photo ??

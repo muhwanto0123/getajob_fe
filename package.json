@@ -16,7 +16,8 @@
     "react-bootstrap-sweetalert": "^5.2.0",
     "react-dom": "^18",
     "sass": "^1.69.5",
-    "set-cookie": "^0.0.4"
+    "set-cookie": "^0.0.4",
+    "sweetalert2": "^11.10.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
