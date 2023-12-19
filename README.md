@@ -97,6 +97,6 @@ Documentation files are provided in the [Demo](https://Peworld-Web-App.vercel.ap
 
 ## Related Project
 
-:rocket: [`Frontend Peworld`](https://github.com/arsyad12/Peworld-Web-App)
+:rocket: [`Frontend Peworld`](https://github.com/muhwanto0123/getajob_fe)
 
-:rocket: [`Demo Peworld`](https://peworld-hirejob-web-seven.vercel.app/)
+:rocket: [`Demo Peworld`](https://getajob-fe.vercel.app/)
