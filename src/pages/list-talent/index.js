@@ -23,17 +23,14 @@ function tallentList(parameter) {
   const handlePagination = (nextPage) => {
     setCurrentPage(nextPage);
 
-    router.push(`/list-talent?page=${nextPage}`)
+    router.push(`/list-talent?page=${nextPage}`);
 
     if (nextPage > 1) {
       setListData(parameter?.data?.slice(4 * (nextPage - 1), 4 * nextPage));
     } else {
       setListData(parameter?.data?.slice(0, 4));
     }
-  }
-
-  
-
+  };
 
   return (
     <>
@@ -61,67 +58,65 @@ function tallentList(parameter) {
               className="w-full"
               onChange={(item) => setSearchBar(item.target.value)}
             />
-            <button
-              className="btn-primary rounded-lg"
-            >
-              Search
-            </button>
+            <button className="btn-primary rounded-lg">Search</button>
           </div>
           {/* content of talent */}
           <div className="p-[25px] bg-[#fff] drop-shadow-xl rounded-lg my-[60px] mx-[15px] md:mx-[0px]">
-            {listData.filter((item) => (item.fullname.toLowerCase().includes(searchBar))).map((item, key) => (
-              <div
-                className={`grid md:grid-cols-5 gap-[50px] items-center ${
-                  key === listData.length - 1
-                    ? ""
-                    : "border-b-2 pb-[30px] mb-[30px]"
-                }`}
-                key={key}
-              >
-                <div className="md:col-span-4 flex gap-[35px]">
-                  <img
-                    src={item?.photo}
-                    alt="profile"
-                    className="rounded-full h-[100px] md:w-[100px] w-[100px]"
-                  />
+            {listData
+              .filter((item) => item.fullname.toLowerCase().includes(searchBar))
+              .map((item, key) => (
+                <div
+                  className={`grid md:grid-cols-5 gap-[50px] items-center ${
+                    key === listData.length - 1
+                      ? ""
+                      : "border-b-2 pb-[30px] mb-[30px]"
+                  }`}
+                  key={key}
+                >
+                  <div className="md:col-span-4 flex gap-[35px]">
+                    <img
+                      src={item?.photo}
+                      alt="profile"
+                      className="rounded-full h-[100px] md:w-[100px] w-[100px]"
+                    />
 
-                  <div>
-                    <h4>{item?.fullname}</h4>
-                    <p className="text-[#9EA0A5] text-[14px] mt-[2px]">
-                      {item?.job}
-                    </p>
-                    <div className="flex gap-[10px] mt-[2px]">
-                      <img src="/img/icon_address.svg" />
-                      <p className="text-[#9EA0A5] text-[14px]">
-                        {item?.address}
+                    <div>
+                      <h4>{item?.fullname}</h4>
+                      <p className="text-[#9EA0A5] text-[14px] mt-[2px]">
+                        {item?.job}
                       </p>
-                    </div>
-                    <div className="flex gap-[10px] mt-[10px] ">
-                      {item?.skills.map((item, key) => (
-                        <button
-                          className="bg-[#FBB01799] border-2 border-[#FBB017] md:py-1 md:px-5  rounded"
-                          key={key}
-                        >
-                          <span className="text-[#fff] text-[14px] text-center">
-                            {item}
-                          </span>
-                        </button>
-                      ))}
+                      <div className="flex gap-[10px] mt-[2px]">
+                        <img src="/img/icon_address.svg" />
+                        <p className="text-[#9EA0A5] text-[14px]">
+                          {item?.address}
+                        </p>
+                      </div>
+                      <div className="flex gap-[10px] mt-[10px] ">
+                        {item?.skills.map((item, key) => (
+                          <button
+                            className="bg-[#FBB01799] border-2 border-[#FBB017] md:py-1 md:px-5  rounded"
+                            key={key}
+                          >
+                            <span className="text-[#fff] text-[14px] text-center">
+                              {item}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
+                  <div className="container flex justify-center block">
+                    <button
+                      className="btn-primary btn-lg rounded-lg flex-auto w-screen w-[10px] md:w-[30px]"
+                      onClick={() =>
+                        router.push(`/list-talent/detail/${item?.id}`)
+                      }
+                    >
+                      Lihat Profile
+                    </button>
+                  </div>
                 </div>
-                <div className="container flex justify-center block">
-                  <button
-                    className="btn-primary btn-lg rounded-lg flex-auto w-screen w-[10px] md:w-[30px]"
-                    onClick={() =>
-                      router.push(`/list-talent/detail/${item?.id}`)
-                    }
-                  >
-                    Lihat Profile
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
           {/* end of content talent */}
 
@@ -162,16 +157,18 @@ function tallentList(parameter) {
 // merubah halaman menjadi berjalan di ssr
 export async function getServerSideProps() {
   try {
-    const request = await axios.get("https://getajob-fe.vercel.app/api/user_list");
+    const request = await axios.get(
+      "https://getajob-fe.vercel.app/api/user_list"
+    );
     return {
       props: request.data,
-    }
+    };
   } catch (error) {
     return {
       props: {
-        data: []
+        data: [],
       },
-    }
+    };
   }
 }
 

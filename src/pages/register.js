@@ -83,7 +83,7 @@ function register() {
 
           {mesgError ? (
             <div className="bg-[#f8d7da] text-[#721c24] p-4 rounded-lg mb-5 w-[95%]">
-              Something wrong in our app, try again latter
+              {mesgError}
             </div>
           ) : null}
 
